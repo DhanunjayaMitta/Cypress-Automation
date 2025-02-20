@@ -22,9 +22,7 @@ jobs:
         run: npx cypress install  
 
       - name: Run Cypress Tests with Recording
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        run: npx cypress run --record
+        run: npx cypress run --record --key e2a46be8-a3b6-4c60-85de-d601b00ecadf
 
       #- name: Cypress run
       #  uses: cypress-io/github-action@v6
