@@ -18,15 +18,20 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          #start: npm start
-          browser: chrome
-          record: true
+      - name: Run Cypress Tests with Recording
         env:
-          #CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        run: npx cypress run --record
+
+      #- name: Cypress run
+      #  uses: cypress-io/github-action@v6
+      #  with:
+      #    #start: npm start
+      #    browser: chrome
+      #    record: true
+      #  env:
+          #CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
+      #    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       
       - name: Upload Mochawesome Reports
         uses: actions/upload-artifact@v4
