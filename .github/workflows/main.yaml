@@ -18,6 +18,9 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+      - name: Install Cypress Binary
+        run: npx cypress install  
+
       - name: Run Cypress Tests with Recording
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
