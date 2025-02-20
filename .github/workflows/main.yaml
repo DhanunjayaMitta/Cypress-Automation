@@ -13,6 +13,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Debug Environment Variables
+        run: echo "CYPRESS_RECORD_KEY is set"
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
